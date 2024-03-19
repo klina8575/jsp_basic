@@ -37,31 +37,6 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <body>
-<%
-Cookie[] c = request.getCookies();
-if (c != null) {
-	for (Cookie cf : c) {
-		if (cf.getName().equals("loginChk") && cf.getValue().equals("Y")) {
-			System.out.println(cf.getValue());
-			%>
-			<script>
-			$(function(){				
-				$("#loginChk").prop("checked", true);
-			});
-			</script>
-			<%
-		} else {
-			%>
-			<script>
-			$(function(){				
-				$("#loginChk").prop("checked", false);
-			});
-			</script>
-			<%
-		}
-	}
-}
-%>
 <form action="login.jsp" method="post">
 	<div>	
 		<h1>관리시스템 로그인</h1>
@@ -78,5 +53,34 @@ if (c != null) {
 		<input type="reset" value="취소" />
 	</div>
 </form>
+<%
+Cookie[] c = request.getCookies();
+if (c != null) {
+	for (Cookie cf : c) {
+		System.out.println("쿠키값:" + cf.getValue());
+		if (cf.getName().equals("id")) {
+			if(!cf.getValue().equals("")) {
+			%>
+				<script>
+				$(function(){			
+					$("#id").val("<%=cf.getValue()%>");
+					$("#loginChk").prop("checked", true);
+				});
+				</script>
+		   <%
+		     } else {   	 
+		    %>
+		    	<script>
+				$(function(){
+					$("#id").val("");
+					$("#loginChk").prop("checked", false);
+				});
+				</script>
+		    <%
+		     } 
+		}
+	}
+}
+%>
 </body>
 </html>
