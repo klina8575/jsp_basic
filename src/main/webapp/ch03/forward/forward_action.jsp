@@ -7,14 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	request.setCharacterEncoding("UTF-8");
+
+	<% 
+		//데이터 이동시 한글이 깨지지 않도록 인코딩 처리
+		request.setCharacterEncoding("UTF-8"); 
 	%>
 
-	<!--forward 액션은 최종 페이지에 파라미터를 함께 전달함, 최초 요청된 페이지 url이 표시됨 -->
-	<jsp:forward page="page_control_end.jsp">
-		<jsp:param name="tel" value="000-000-0000" />
+	<!-- forward는 페이지 이동시 request 객체를 함께 전달(파라미터 데이터가 유지)-->
+	<!-- forward_action.jsp 안에서 페이지를 이동시킴(이동시 url이 변하지 X) -->
+	<jsp:forward page="end.jsp">
+		<jsp:param name="tel" value="010-0000-0000"/>
 	</jsp:forward>
-
 </body>
 </html>

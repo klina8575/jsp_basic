@@ -7,13 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<hr>
-	결과창
-	<hr>
-	이름:
-	<%=request.getParameter("username")%>
-	<br> 전화번호:
-	<%=request.getParameter("tel")%>
-
+	<!-- sendRedirect는 단순히 지정된 페이지로 이동, request 객체를 함께 전달하지 X(데이터 X) -->
+	<% response.sendRedirect("end.jsp");%>
 </body>
 </html>

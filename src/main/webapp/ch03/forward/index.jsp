@@ -7,16 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<hr>
 	<form method="post" action="forward_action.jsp">
-		forward action : <input type="text" name="username"> 
+		forward action: <input type="text" name="username">
 		<input type="submit" value="확인">
 	</form>
-
-	<form method="post"  action="response_send_redirect.jsp" >
-		response.sendRedirect : <input type="text"  name="username" > 
-		<input type="submit"  value="확인">
+	
+	<form method="post" action="send_redirect.jsp">
+		sendRedirect: <input type="text" name="username">
+		<input type="submit" value="확인">
 	</form>
-
 </body>
 </html>
